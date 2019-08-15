@@ -1,0 +1,11 @@
+#!/usr/bin/expect
+
+set login_name [lindex $argv 0]
+
+spawn grep $login_name /etc/passwd
+expect eof
+
+set output [split $expect_out(buffer) ":"]
+puts "The shell is [lindex $output end]"
+
+# The fields are separated by colons, and the default shell is usually specified in the last field.
