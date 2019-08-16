@@ -1,5 +1,8 @@
 #!/usr/bin/expect
 
+# If the output of spawned process is not needed, uncomment following line
+#log_user 0
+
 set login_name [lindex $argv 0]
 
 spawn grep $login_name /etc/passwd
