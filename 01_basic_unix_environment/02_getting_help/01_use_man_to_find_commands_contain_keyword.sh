@@ -3,3 +3,11 @@
 keyword=$1
 
 man -k $keyword
+
+# Example
+# Output of "man -k egrep"
+#bzegrep (1)          - search possibly bzip2 compressed files for a regu...
+#egrep (1)            - print lines matching a pattern
+#lzegrep (1)          - search compressed files for a regular expression
+#xzegrep (1)          - search compressed files for a regular expression
+#zegrep (1)           - search possibly compressed files for a regular ex...
