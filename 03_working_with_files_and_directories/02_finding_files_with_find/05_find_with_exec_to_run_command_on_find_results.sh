@@ -28,3 +28,10 @@ find . -name \*.cc -exec grep -n "GetRaw(" {} \;
 # it shows me each line that matched my grep along with its line number, followed by the name of the file where those lines were found.
 # Most versions of grep can search recursively (using -R), but they search all files; you need find to grep through only certain files in a large directory tree.
 
+
+# Execute different command on different find results
+find . \( -type d -a -exec chmod 771 {} \; \) -o \
+	\( -name "*.BAK" -a -exec chmod 600 {} \; \) -o \
+	\( -name "*.sh" -a -exec chmod 755 {} \; \) -o \
+	\( -name "*.txt" -a -exec chmod 644 {} \; \)
+# Running find is fairly time consuming, and for good reason: it has to read every inode in the directory tree that it's searching. Therefore, combine as many things as you can into a single find command. If you're going to walk the entire tree, you may as well accomplish as much as possible in the process.
