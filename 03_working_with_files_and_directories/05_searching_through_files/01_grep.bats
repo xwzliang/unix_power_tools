@@ -48,6 +48,17 @@
 	run grep -h -w 'bzip.' list*
 	[ "$output" == "bzip2" ]
 
+	# Use grep -c to output counts of match
+	expect=$(cat <<- _EOF_
+	list_bin:5
+	list_sbin:0
+	list_usr_bin:16
+	list_usr_sbin:0
+	_EOF_
+	)
+	run grep -c zip list*
+	[ "$output" == "$expect" ]
+
 	# Use grep -C num to output context before and after match
 	expect=$(cat <<- _EOF_
 	bzfgrep
