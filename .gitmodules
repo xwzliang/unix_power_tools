@@ -1,0 +1,3 @@
+[submodule "04_basic_editing/02_ed_sed_awk_batch_editing/sed_and_awk"]
+	path = 04_basic_editing/02_ed_sed_awk_batch_editing/sed_and_awk
+	url = https://github.com/xwzliang/sed_and_awk
