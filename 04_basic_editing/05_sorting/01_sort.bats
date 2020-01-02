@@ -102,7 +102,6 @@
 
 
 	# The -t option lets you change the field delimiter to some other character.
-	# Two consecutive separators indicate a "null" field that still must be counted.
 	run sort -t "-" +1 <<< $test_string
 	expect=$(cat <<- '_EOF_'
 	Robert M Johnson      344-0909
