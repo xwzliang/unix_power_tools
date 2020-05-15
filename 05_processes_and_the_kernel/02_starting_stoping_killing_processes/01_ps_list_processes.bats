@@ -7,7 +7,7 @@
 	# 2140 ?        00:03:05 systemd
 	output=$(ps | head -1)
 	expect=$(cat << _EOF_
-  PID TTY          TIME CMD
+    PID TTY          TIME CMD
 _EOF_
 )
 	[ "$output" == "$expect" ]
@@ -18,7 +18,7 @@ _EOF_
 # someuser   334  0.0  1.1 289860 88676 pts/16   Sl+  Apr05   2:54 /usr/bin/emacs -nw
 	output=$(ps aux | head -1)
 	expect=$(cat << _EOF_
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 _EOF_
 )
 	[ "$output" == "$expect" ]
@@ -26,22 +26,12 @@ _EOF_
 	# A vaguely similar listing is produced by the System V ps -ef command:
 # UID        PID  PPID  C STIME TTY          TIME CMD
 # root         1     0  0 Mar25 ?        00:00:29 /sbin/init splash
-	output=$(ps aux | head -1)
-	expect=$(cat << _EOF_
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-_EOF_
-)
-	[ "$output" == "$expect" ]
+
 
 	# ps -l (long format)
 # F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 # 4 S  1000  2140     1  0  80   0 -  4762 ep_pol ?        00:03:05 systemd
-	output=$(ps aux | head -1)
-	expect=$(cat << _EOF_
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-_EOF_
-)
-	[ "$output" == "$expect" ]
+
 
 	# USER (BSD) Username of process owner
 
